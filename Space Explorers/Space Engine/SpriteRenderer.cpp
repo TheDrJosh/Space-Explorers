@@ -3,6 +3,9 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include <algorithm>
+
+//#define MaxQuads 100
 
 struct Vertex
 {
@@ -55,21 +58,29 @@ SpaceEngine::Renderer::SpriteRenderer::SpriteRenderer(Window* window)
 	shader = Shader("D:/Dev/cpp Games/Space Explorers/Space Explorers/Space Engine/Shaders/shader.vert", 
 		"D:/Dev/cpp Games/Space Explorers/Space Explorers/Space Engine/Shaders/shader.frag");
 
-
-
+	
 }
 void SpaceEngine::Renderer::SpriteRenderer::AddQuad(Quad quad)
 {
 	quads.push_back(quad);
 }
+
+bool quadSort(SpaceEngine::Renderer::Quad i, SpaceEngine::Renderer::Quad j)
+{
+	return i.depth > j.depth;
+}
+
 void SpaceEngine::Renderer::SpriteRenderer::Render()
 {
+	
+	std::sort(quads.begin(), quads.end(), quadSort);
+
 	while (quads.size() != 0)
 	{
 		Quad quad = quads.back();
 
 		glm::mat4 model = glm::identity<glm::mat4>();
-		model = glm::translate(model, glm::vec3(quad.position, quad.depth));
+		model = glm::translate(model, glm::vec3(quad.position, 0));
 		model = glm::rotate(model, quad.rotation, glm::vec3(0, 0, 1));
 		model = glm::scale(model, glm::vec3(quad.scale, 1));
 
@@ -90,6 +101,9 @@ void SpaceEngine::Renderer::SpriteRenderer::Render()
 		shader.setMat4("projection", projection);
 
 		shader.setVec4("color", quad.color);
+
+
+		quad.texture.use(0);
 
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

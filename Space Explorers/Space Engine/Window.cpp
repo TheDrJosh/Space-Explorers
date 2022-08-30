@@ -1,6 +1,10 @@
 #include "Window.h"
 #include <iostream>
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
 
 SpaceEngine::Window::Window(int width, int height, const char* title)
 {
@@ -21,7 +25,7 @@ SpaceEngine::Window::Window(int width, int height, const char* title)
 
 	glfwMakeContextCurrent(window);
 	
-	
+	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 }
 
 bool SpaceEngine::Window::ShouldClose()
@@ -37,3 +41,4 @@ void SpaceEngine::Window::GetSize(int* width, int* height)
 {
 	glfwGetWindowSize(window, width, height);
 }
+

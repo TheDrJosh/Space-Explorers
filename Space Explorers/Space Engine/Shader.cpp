@@ -1,8 +1,7 @@
 #include "Shader.h"
 #include <GL/glew.h>
-#include <fstream>
 #include <iostream>
-
+#include "File.h"
 
 uint32_t CompileShader(uint32_t type, const std::string source)
 {
@@ -29,23 +28,6 @@ uint32_t CompileShader(uint32_t type, const std::string source)
 	return id;
 }
 
-std::string GetFile(const std::string& filepath)
-{
-	std::string file = "";
-	std::string line;
-	std::ifstream myfile(filepath);
-	if (myfile.is_open())
-	{
-		while (getline(myfile, line))
-		{
-			file += line + "\n";
-		}
-		myfile.close();
-	}
-	else std::cout << "Unable to open file " << filepath << std::endl;
-	return file;
-}
-
 
 
 SpaceEngine::Renderer::Shader::Shader()
@@ -56,8 +38,8 @@ SpaceEngine::Renderer::Shader::Shader()
 SpaceEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
 {
 	valid = true;
-	const std::string& vertexShader = GetFile(vertexShaderPath);
-	const std::string& fragmentShader = GetFile(fragmentShaderPath);
+	const std::string& vertexShader = SpaceEngine::FileSystem::GetFile(vertexShaderPath);
+	const std::string& fragmentShader = SpaceEngine::FileSystem::GetFile(fragmentShaderPath);
 	
 	shaderHandle = glCreateProgram();
 

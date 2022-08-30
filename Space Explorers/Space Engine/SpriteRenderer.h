@@ -6,6 +6,7 @@
 #include "Shader.h"
 #include "Window.h"
 #include <iostream>
+#include "Texture.h"
 
 namespace SpaceEngine
 {
@@ -17,16 +18,17 @@ namespace SpaceEngine
 			float rotation = 0;
 			glm::vec2 scale = glm::vec2(1, 1);
 			glm::vec4 color = glm::vec4(1,1,1,1);
-			std::string texture = "";
+			Texture texture;
 			float depth = 0;
 
 			void print()
 			{
-				std::cout << "Position: (" << position.x << ", " << position.y << ")" << std::endl <<
+				std::cout << 
+					"Position: (" << position.x << ", " << position.y << ")" << std::endl <<
 					"Rotation: " << rotation << std::endl <<
 					"Scale: (" << scale.x << ", " << scale.y << ")" << std::endl <<
 					"Color: (" << color.r << ", " << color.g << ", " << color.b << ", " << color.a << ")" << std::endl <<
-					"texture: \"" + texture + "\"" << std::endl <<
+					"texture: \"" << texture.getName() << "\"" << std::endl <<
 					"Depth: " << depth << std::endl;
 			}
 

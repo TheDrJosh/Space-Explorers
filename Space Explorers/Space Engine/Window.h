@@ -11,8 +11,9 @@ namespace SpaceEngine
 		bool ShouldClose();
 		void SwapBuffers();
 		void GetSize(int* width, int* height);
-	//private:
+	private:
 		GLFWwindow* window;
+		//void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 	};
 }
 
