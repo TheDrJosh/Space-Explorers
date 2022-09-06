@@ -16,7 +16,7 @@ struct Vertex
 };
 
 
-SpaceEngine::Renderer::SpriteRenderer::SpriteRenderer(Window* window)
+ExplorerEngine::Renderer::SpriteRenderer::SpriteRenderer(std::shared_ptr<Window> window)
 {
 	this->window = window;
 
@@ -55,24 +55,23 @@ SpaceEngine::Renderer::SpriteRenderer::SpriteRenderer(Window* window)
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	shader = Shader("D:/Dev/cpp Games/Space Explorers/Space Explorers/Space Engine/Shaders/shader.vert", 
-		"D:/Dev/cpp Games/Space Explorers/Space Explorers/Space Engine/Shaders/shader.frag");
+	shader = Shader("Explorer Engine/Shaders/shader.vert", 
+		"Explorer Engine/Shaders/shader.frag");
 
 	
 }
-void SpaceEngine::Renderer::SpriteRenderer::AddQuad(Quad quad)
+void ExplorerEngine::Renderer::SpriteRenderer::AddQuad(Quad quad)
 {
 	quads.push_back(quad);
 }
 
-bool quadSort(SpaceEngine::Renderer::Quad i, SpaceEngine::Renderer::Quad j)
+bool quadSort(ExplorerEngine::Renderer::Quad i, ExplorerEngine::Renderer::Quad j)
 {
 	return i.depth > j.depth;
 }
 
-void SpaceEngine::Renderer::SpriteRenderer::Render()
+void ExplorerEngine::Renderer::SpriteRenderer::Render()
 {
-	
 	std::sort(quads.begin(), quads.end(), quadSort);
 
 	while (quads.size() != 0)

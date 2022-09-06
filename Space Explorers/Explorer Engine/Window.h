@@ -2,7 +2,7 @@
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
 
-namespace SpaceEngine
+namespace ExplorerEngine
 {
 	class Window
 	{
@@ -13,7 +13,6 @@ namespace SpaceEngine
 		void GetSize(int* width, int* height);
 	private:
 		GLFWwindow* window;
-		//void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 	};
 }
 

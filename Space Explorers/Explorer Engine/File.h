@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-namespace SpaceEngine
+namespace ExplorerEngine
 {
 	namespace FileSystem
 	{

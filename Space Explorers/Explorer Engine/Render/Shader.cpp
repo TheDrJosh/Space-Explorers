@@ -1,7 +1,7 @@
 #include "Shader.h"
 #include <GL/glew.h>
 #include <iostream>
-#include "File.h"
+#include "../File.h"
 
 uint32_t CompileShader(uint32_t type, const std::string source)
 {
@@ -30,16 +30,16 @@ uint32_t CompileShader(uint32_t type, const std::string source)
 
 
 
-SpaceEngine::Renderer::Shader::Shader()
+ExplorerEngine::Renderer::Shader::Shader()
 {
 	shaderHandle = 0;
 	valid = false;
 }
-SpaceEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
+ExplorerEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
 {
 	valid = true;
-	const std::string& vertexShader = SpaceEngine::FileSystem::GetFile(vertexShaderPath);
-	const std::string& fragmentShader = SpaceEngine::FileSystem::GetFile(fragmentShaderPath);
+	const std::string& vertexShader = ExplorerEngine::FileSystem::GetFile(vertexShaderPath);
+	const std::string& fragmentShader = ExplorerEngine::FileSystem::GetFile(fragmentShaderPath);
 	
 	shaderHandle = glCreateProgram();
 
@@ -56,25 +56,25 @@ SpaceEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::string 
 	glDeleteShader(fs);
 	use();
 }
-bool SpaceEngine::Renderer::Shader::isValid()
+bool ExplorerEngine::Renderer::Shader::isValid()
 {
 	return valid;
 }
-void SpaceEngine::Renderer::Shader::use()
+void ExplorerEngine::Renderer::Shader::use()
 {
 	glUseProgram(shaderHandle);
 }
-void SpaceEngine::Renderer::Shader::setMat4(std::string uniformName, glm::mat4 data)
+void ExplorerEngine::Renderer::Shader::setMat4(std::string uniformName, glm::mat4 data)
 {
 	use();
 	glUniformMatrix4fv(glGetUniformLocation(shaderHandle, uniformName.c_str()), 1, GL_FALSE, &data[0][0]);
 }
-void SpaceEngine::Renderer::Shader::setVec4(std::string uniformName, glm::vec4 data)
+void ExplorerEngine::Renderer::Shader::setVec4(std::string uniformName, glm::vec4 data)
 {
 	use();
 	glUniform4f(glGetUniformLocation(shaderHandle, uniformName.c_str()), data.x, data.y, data.z, data.w);
 }
-SpaceEngine::Renderer::Shader::~Shader()
+ExplorerEngine::Renderer::Shader::~Shader()
 {
 	glDeleteProgram(shaderHandle);
 }

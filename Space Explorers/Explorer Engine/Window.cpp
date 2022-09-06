@@ -6,7 +6,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-SpaceEngine::Window::Window(int width, int height, const char* title)
+ExplorerEngine::Window::Window(int width, int height, const char* title)
 {
 	if (!glfwInit())
 	{
@@ -28,16 +28,16 @@ SpaceEngine::Window::Window(int width, int height, const char* title)
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 }
 
-bool SpaceEngine::Window::ShouldClose()
+bool ExplorerEngine::Window::ShouldClose()
 {
 	return glfwWindowShouldClose(window);
 }
 
-void SpaceEngine::Window::SwapBuffers()
+void ExplorerEngine::Window::SwapBuffers()
 {
 	glfwSwapBuffers(window);
 }
-void SpaceEngine::Window::GetSize(int* width, int* height)
+void ExplorerEngine::Window::GetSize(int* width, int* height)
 {
 	glfwGetWindowSize(window, width, height);
 }

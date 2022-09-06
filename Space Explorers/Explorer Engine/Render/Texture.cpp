@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <iostream>
 
-SpaceEngine::Renderer::Texture::Texture()
+ExplorerEngine::Renderer::Texture::Texture()
 {
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -18,8 +18,9 @@ SpaceEngine::Renderer::Texture::Texture()
 
 }
 
-SpaceEngine::Renderer::Texture::Texture(std::string path)
+ExplorerEngine::Renderer::Texture::Texture(std::string path)
 {
+	name = path;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
 
@@ -64,7 +65,7 @@ SpaceEngine::Renderer::Texture::Texture(std::string path)
 	}
 	stbi_image_free(data);
 }
-void SpaceEngine::Renderer::Texture::use(int textureUnit)
+void ExplorerEngine::Renderer::Texture::use(int textureUnit)
 {
 	if (textureUnit >= 0 && textureUnit < 32)
 	{
@@ -72,7 +73,7 @@ void SpaceEngine::Renderer::Texture::use(int textureUnit)
 		glBindTexture(GL_TEXTURE_2D, texture);
 	}
 }
-std::string SpaceEngine::Renderer::Texture::getName()
+std::string ExplorerEngine::Renderer::Texture::getName()
 {
 	return name;
 }

@@ -2,7 +2,7 @@
 #include <string>
 
 
-namespace SpaceEngine
+namespace ExplorerEngine
 {
 	namespace Renderer
 	{

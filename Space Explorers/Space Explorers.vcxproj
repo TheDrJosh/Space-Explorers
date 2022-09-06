@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -140,22 +140,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Space Engine\Shaders\shader.frag" />
-    <None Include="Space Engine\Shaders\shader.vert" />
+    <None Include="Explorer Engine\Shaders\shader.frag" />
+    <None Include="Explorer Engine\Shaders\shader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Space Engine\Shader.cpp" />
-    <ClCompile Include="Space Engine\SpriteRenderer.cpp" />
-    <ClCompile Include="Space Engine\Texture.cpp" />
-    <ClCompile Include="Space Engine\Window.cpp" />
+    <ClCompile Include="Explorer Engine\Render\Shader.cpp" />
+    <ClCompile Include="Explorer Engine\Render\SpriteRenderer.cpp" />
+    <ClCompile Include="Explorer Engine\Render\Texture.cpp" />
+    <ClCompile Include="Explorer Engine\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Space Engine\File.h" />
-    <ClInclude Include="Space Engine\Shader.h" />
-    <ClInclude Include="Space Engine\SpriteRenderer.h" />
-    <ClInclude Include="Space Engine\Texture.h" />
-    <ClInclude Include="Space Engine\Window.h" />
+    <ClInclude Include="Explorer Engine\ECS\ComponentArray.h" />
+    <ClInclude Include="Explorer Engine\ECS\ECSCommon.h" />
+    <ClInclude Include="Explorer Engine\ECS\ComponetManager.h" />
+    <ClInclude Include="Explorer Engine\ECS\EntityManager.h" />
+    <ClInclude Include="Explorer Engine\ECS\Scene.h" />
+    <ClInclude Include="Explorer Engine\ECS\SceneManager.h" />
+    <ClInclude Include="Explorer Engine\ExplorerEngine.h" />
+    <ClInclude Include="Explorer Engine\File.h" />
+    <ClInclude Include="Explorer Engine\Render\Renderer.h" />
+    <ClInclude Include="Explorer Engine\Render\Shader.h" />
+    <ClInclude Include="Explorer Engine\Render\SpriteRenderer.h" />
+    <ClInclude Include="Explorer Engine\Render\Texture.h" />
+    <ClInclude Include="Explorer Engine\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg" />

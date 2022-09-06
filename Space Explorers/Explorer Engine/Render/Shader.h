@@ -2,7 +2,7 @@
 #include <string>
 #include <glm/glm.hpp>
 
-namespace SpaceEngine
+namespace ExplorerEngine
 {
 	namespace Renderer
 	{
