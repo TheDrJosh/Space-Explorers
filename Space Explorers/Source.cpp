@@ -64,7 +64,7 @@ int main()
 	Transform entity1_transform2 = scene.GetCompoent<Transform>(entity1);
 	std::cout << entity1_transform2.rotation << std::endl;
 
-
+	test
 	while (!window.ShouldClose())
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
