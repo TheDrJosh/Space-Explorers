@@ -76,7 +76,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;D:\Dev\cpp Games\Space Explorers\packages\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,7 +94,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;D:\Dev\cpp Games\Space Explorers\packages\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +112,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;D:\Dev\cpp Games\Space Explorers\packages\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +130,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\cpp Games\Space Explorers\packages\std_image;D:\Dev\cpp Games\Space Explorers\packages\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,6 +148,8 @@
     <None Include="Explorer Engine\Shaders\shader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Explorer Engine\ExplorerEngine.cpp" />
+    <ClCompile Include="Explorer Engine\Render\Renderer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Explorer Engine\Render\Shader.cpp" />
     <ClCompile Include="Explorer Engine\Render\SpriteRenderer.cpp" />
@@ -151,12 +157,7 @@
     <ClCompile Include="Explorer Engine\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Explorer Engine\ECS\ComponentArray.h" />
-    <ClInclude Include="Explorer Engine\ECS\ECSCommon.h" />
-    <ClInclude Include="Explorer Engine\ECS\ComponetManager.h" />
-    <ClInclude Include="Explorer Engine\ECS\EntityManager.h" />
     <ClInclude Include="Explorer Engine\ECS\Scene.h" />
-    <ClInclude Include="Explorer Engine\ECS\SceneManager.h" />
     <ClInclude Include="Explorer Engine\ExplorerEngine.h" />
     <ClInclude Include="Explorer Engine\File.h" />
     <ClInclude Include="Explorer Engine\Render\Renderer.h" />

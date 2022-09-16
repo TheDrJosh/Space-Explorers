@@ -11,7 +11,7 @@
 
 namespace ExplorerEngine
 {
-	namespace Renderer
+	namespace Render
 	{
 		struct Quad
 		{
@@ -21,22 +21,19 @@ namespace ExplorerEngine
 			glm::vec4 color = glm::vec4(1,1,1,1);
 			Texture texture;
 			float depth = 0;
-
-
 		};
 
 		class SpriteRenderer
 		{
 		public:
-			SpriteRenderer(std::shared_ptr<Window> window);
+			SpriteRenderer();
 			void AddQuad(Quad quad);
-			void Render();
+			void Render(int width, int height);
 		private:
 			uint32_t vertexBuffer;
 			uint32_t indexBuffer;
 			std::vector<Quad> quads;
 			Shader shader;
-			std::shared_ptr<Window> window;
 		};
 
 	}

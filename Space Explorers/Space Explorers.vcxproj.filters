@@ -60,17 +60,14 @@
     <ClCompile Include="Explorer Engine\Window.cpp">
       <Filter>Source Files\Explorer Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Explorer Engine\Render\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Explorer Engine\ExplorerEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Explorer Engine\ECS\ECSCommon.h">
-      <Filter>Header Files\Explorer Engine\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\EntityManager.h">
-      <Filter>Header Files\Explorer Engine\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\Scene.h">
-      <Filter>Header Files\Explorer Engine\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="Explorer Engine\Render\SpriteRenderer.h">
       <Filter>Header Files\Explorer Engine\Renderer</Filter>
     </ClInclude>
@@ -86,19 +83,13 @@
     <ClInclude Include="Explorer Engine\Window.h">
       <Filter>Header Files\Explorer Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\ComponetManager.h">
-      <Filter>Header Files\Explorer Engine\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\ComponentArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Explorer Engine\ExplorerEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Explorer Engine\Render\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\SceneManager.h">
+    <ClInclude Include="Explorer Engine\ECS\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

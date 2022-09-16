@@ -1,20 +1,8 @@
-#include <gl/glew.h>
-#include <GLFW/glfw3.h>
-
 #include <iostream>
 #include <glm/ext/scalar_constants.hpp>
-
 #include "Explorer Engine/ExplorerEngine.h"
 
 using namespace ExplorerEngine;
-
-struct Transform
-{
-	glm::vec2 position;
-	float rotation = 0;
-	glm::vec2 scale;
-};
-
 
 int main()
 {
@@ -82,7 +70,11 @@ int main()
 	glfwTerminate();
 	*/
 
-	ExplorerEngine::Engine engine(1920, 1080, "Space Explorers");
+	Engine engine(1920, 1080, "Space Explorers");
+
+	
+
+
 	engine.start();
 
 	return 0;
