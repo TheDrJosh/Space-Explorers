@@ -42,3 +42,8 @@ void ExplorerEngine::Window::GetSize(int* width, int* height)
 	glfwGetWindowSize(window, width, height);
 }
 
+ExplorerEngine::Window::~Window()
+{
+	glfwDestroyWindow(window);
+}
+

@@ -1,7 +1,5 @@
 #pragma once
-#include "ECSCommon.h"
-#include "EntityManager.h"
-#include "ComponetManager.h"
+#include <entt.hpp>
 namespace ExplorerEngine
 {
 	namespace ECS
@@ -9,49 +7,19 @@ namespace ExplorerEngine
 		class Scene
 		{
 		public:
-			Entity CreateEntity()
+			Scene()
 			{
-				return CreateEntity(0);
-			}
-			Entity CreateEntity(ComponentSet compoentSet)
-			{
-				Entity id = entityManager.AddEntiy();
-				return id;
-			}
-			Entity Instantiate(Entity entity)
-			{
-				return 0;
-			}
-			void DestroyEntity(Entity entity)
-			{
-				entityManager.RemoveEntity(entity);
-				componentManager.EntityDestroyed(entity);
+
 			}
 			
-			template<typename T>
-			void RegisterComponent()
+			entt::entity CreateEntity()
 			{
-				componentManager.RegisterComponent<T>();
+				return registry.create();
 			}
-			template<typename T>
-			void AddComponent(Entity entity, T component)
-			{
-				componentManager.AddComponent<T>(entity, component);
-			}
-			template<typename T>
-			void RemoveComponent(Entity entity)
-			{
-				componentManager.RemoveCompoent<T>(entity);
-			}
-			template<typename T>
-			T& GetCompoent(Entity entity)
-			{
-				return componentManager.GetCompoent<T>(entity);
-			}
+			
+
 		private:
-			EntityManager entityManager;
-			ComponentManager componentManager;
+			entt::registry registry;
 		};
-		
 	}
 }

@@ -30,12 +30,12 @@ uint32_t CompileShader(uint32_t type, const std::string source)
 
 
 
-ExplorerEngine::Renderer::Shader::Shader()
+ExplorerEngine::Render::Shader::Shader()
 {
 	shaderHandle = 0;
 	valid = false;
 }
-ExplorerEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
+ExplorerEngine::Render::Shader::Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
 {
 	valid = true;
 	const std::string& vertexShader = ExplorerEngine::FileSystem::GetFile(vertexShaderPath);
@@ -56,25 +56,25 @@ ExplorerEngine::Renderer::Shader::Shader(std::string vertexShaderPath, std::stri
 	glDeleteShader(fs);
 	use();
 }
-bool ExplorerEngine::Renderer::Shader::isValid()
+bool ExplorerEngine::Render::Shader::isValid()
 {
 	return valid;
 }
-void ExplorerEngine::Renderer::Shader::use()
+void ExplorerEngine::Render::Shader::use()
 {
 	glUseProgram(shaderHandle);
 }
-void ExplorerEngine::Renderer::Shader::setMat4(std::string uniformName, glm::mat4 data)
+void ExplorerEngine::Render::Shader::setMat4(std::string uniformName, glm::mat4 data)
 {
 	use();
 	glUniformMatrix4fv(glGetUniformLocation(shaderHandle, uniformName.c_str()), 1, GL_FALSE, &data[0][0]);
 }
-void ExplorerEngine::Renderer::Shader::setVec4(std::string uniformName, glm::vec4 data)
+void ExplorerEngine::Render::Shader::setVec4(std::string uniformName, glm::vec4 data)
 {
 	use();
 	glUniform4f(glGetUniformLocation(shaderHandle, uniformName.c_str()), data.x, data.y, data.z, data.w);
 }
-ExplorerEngine::Renderer::Shader::~Shader()
+ExplorerEngine::Render::Shader::~Shader()
 {
 	glDeleteProgram(shaderHandle);
 }

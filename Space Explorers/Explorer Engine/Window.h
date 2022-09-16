@@ -11,6 +11,7 @@ namespace ExplorerEngine
 		bool ShouldClose();
 		void SwapBuffers();
 		void GetSize(int* width, int* height);
+		~Window();
 	private:
 		GLFWwindow* window;
 	};

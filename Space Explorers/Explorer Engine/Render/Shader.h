@@ -4,7 +4,7 @@
 
 namespace ExplorerEngine
 {
-	namespace Renderer
+	namespace Render
 	{
 		class Shader
 		{

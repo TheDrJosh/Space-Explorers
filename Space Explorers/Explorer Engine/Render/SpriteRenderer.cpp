@@ -16,17 +16,9 @@ struct Vertex
 };
 
 
-ExplorerEngine::Renderer::SpriteRenderer::SpriteRenderer(std::shared_ptr<Window> window)
+ExplorerEngine::Render::SpriteRenderer::SpriteRenderer()
 {
-	this->window = window;
-
-	GLenum err = glewInit();
-	if (err != GLEW_OK)
-	{
-		glfwTerminate();
-		std::cerr << glewGetErrorString(err) << std::endl;
-		return;
-	}
+	
 
 	float verts[] = {
 		 0.5,  0.5, 1, 1,
@@ -60,17 +52,17 @@ ExplorerEngine::Renderer::SpriteRenderer::SpriteRenderer(std::shared_ptr<Window>
 
 	
 }
-void ExplorerEngine::Renderer::SpriteRenderer::AddQuad(Quad quad)
+void ExplorerEngine::Render::SpriteRenderer::AddQuad(Quad quad)
 {
 	quads.push_back(quad);
 }
 
-bool quadSort(ExplorerEngine::Renderer::Quad i, ExplorerEngine::Renderer::Quad j)
+bool quadSort(ExplorerEngine::Render::Quad i, ExplorerEngine::Render::Quad j)
 {
 	return i.depth > j.depth;
 }
 
-void ExplorerEngine::Renderer::SpriteRenderer::Render()
+void ExplorerEngine::Render::SpriteRenderer::Render(int width, int height)
 {
 	std::sort(quads.begin(), quads.end(), quadSort);
 
@@ -85,9 +77,6 @@ void ExplorerEngine::Renderer::SpriteRenderer::Render()
 
 		glm::mat4 view = glm::identity<glm::mat4>();
 
-		int width = 0;
-		int height = 0;
-		window->GetSize(&width, &height);
 		float aspect = (float)height / (float)width;
 
 		float camerascale = 5;

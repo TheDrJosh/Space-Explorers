@@ -4,8 +4,10 @@
 
 namespace ExplorerEngine
 {
-	namespace Renderer
+	namespace Render
 	{
+		using GPUTexture = uint32_t;
+
 		class Texture
 		{
 		public:
@@ -15,7 +17,7 @@ namespace ExplorerEngine
 			std::string getName();
 		private:
 			std::string name;
-			uint32_t texture;
+			GPUTexture texture;
 			int width;
 			int height;
 		};
