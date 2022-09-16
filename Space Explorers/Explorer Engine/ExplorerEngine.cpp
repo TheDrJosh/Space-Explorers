@@ -1,74 +1,38 @@
 #include "ExplorerEngine.h"
 
 
-
-ExplorerEngine::Engine::Engine(int width, int height, const char* title)
+namespace ExplorerEngine
 {
-	window = std::make_unique<Window>(width, height, title);
-	renderer = std::make_unique<Render::MainRenderer>();
-
-	sceneManager.RegisterComponent<ECS::Transform>();
-	sceneManager.RegisterComponent<ECS::SpriteRenderer>();
-
-}
-
-ExplorerEngine::Engine::~Engine()
-{
-	glfwTerminate();
-}
-void ExplorerEngine::Engine::start()
-{
-	int width, height = 0;
-
-	while (!window->ShouldClose())
+	Engine::Engine(int width, int height, const char* title)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		window = std::make_unique<Window>(width, height, title);
+		renderer = std::make_unique<Render::MainRenderer>();
 
-		window->GetSize(&width, &height);
+		//sceneManager.RegisterComponent<ECS::Transform>();
+		//sceneManager.RegisterComponent<ECS::SpriteRenderer>();
 
-		renderer->Render(width, height);
-
-		window->SwapBuffers();
-		glfwPollEvents();
 	}
-}
 
-ExplorerEngine::ECS::SceneID ExplorerEngine::Engine::AddScene()
-{
-	return sceneManager.AddScene();
-}
+	Engine::~Engine()
+	{
+		glfwTerminate();
+	}
+	void Engine::start()
+	{
+		int width, height = 0;
 
-void ExplorerEngine::Engine::RemoveScene(ECS::SceneID scene)
-{
-	sceneManager.RemoveScene(scene);
-}
+		while (!window->ShouldClose())
+		{
+			glClear(GL_COLOR_BUFFER_BIT);
 
-void ExplorerEngine::Engine::ActiveScene(ECS::SceneID scene)
-{
-	sceneManager.SetActive(scene);
-}
+			window->GetSize(&width, &height);
 
-void ExplorerEngine::Engine::SetSequence(std::vector<ECS::SceneID> sequence)
-{
-	sceneManager.SetSequence(sequence);
-}
-void ExplorerEngine::Engine::AddToSequence(ECS::SceneID scene)
-{
-	sceneManager.AddToSequence(scene);
-}
-void ExplorerEngine::Engine::SaveScene(ECS::SceneID scene)
-{
-	sceneManager.SaveScene(scene);
-}
+			renderer->Render(width, height);
 
-ExplorerEngine::ECS::Entity ExplorerEngine::Engine::AddEntity()
-{
-	return sceneManager.activeScene.CreateEntity();
-}
+			window->SwapBuffers();
+			glfwPollEvents();
+		}
+	}
 
-
-void ExplorerEngine::Engine::RemoveEntity(ECS::Entity entity)
-{
-	sceneManager.activeScene.DestroyEntity(entity);
 }
 

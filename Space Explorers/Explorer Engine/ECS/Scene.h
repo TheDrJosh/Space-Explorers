@@ -7,15 +7,26 @@ namespace ExplorerEngine
 		class Scene
 		{
 		public:
-			Scene()
+			Scene();
+			
+			entt::entity CreateEntity();
+			void DestroyEntity(entt::entity entity);
+			template<typename T>
+			T& AddComponent(entt::entity entity)
 			{
-
+				return registry.emplace<T>(entity);
+			}
+			template<typename T>
+			void RemoveComponent(entt::entity entity)
+			{
+				registry.remove<T>(entity);
+			}
+			template<typename T>
+			T& RemoveComponent(entt::entity entity)
+			{
+				return get.remove<T>(entity);
 			}
 			
-			entt::entity CreateEntity()
-			{
-				return registry.create();
-			}
 			
 
 		private:

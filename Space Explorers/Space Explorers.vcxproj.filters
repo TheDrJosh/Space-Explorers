@@ -66,6 +66,9 @@
     <ClCompile Include="Explorer Engine\ExplorerEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Explorer Engine\ECS\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Explorer Engine\Render\SpriteRenderer.h">
