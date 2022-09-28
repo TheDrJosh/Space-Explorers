@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\Shaders">
-      <UniqueIdentifier>{39e58191-3d4b-4e90-94b6-5025b3a4f20c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Explorer Engine">
-      <UniqueIdentifier>{f3168afc-8d01-40ec-ab9e-c7f0595b5d85}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Explorer Engine">
       <UniqueIdentifier>{8c7c6ce0-e26b-44d3-aa94-e5629b13c238}</UniqueIdentifier>
     </Filter>
@@ -28,77 +22,41 @@
     <Filter Include="Header Files\Explorer Engine\Renderer">
       <UniqueIdentifier>{366abe07-6086-425e-9d21-559e82af7958}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Explorer Engine\ECS">
-      <UniqueIdentifier>{e1001872-f59c-4467-b0e0-573b240ce5d1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Explorer Engine\Renderer">
-      <UniqueIdentifier>{aa244f41-44ce-4398-93d8-620887f60382}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Explorer Engine\Shaders\shader.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="Explorer Engine\Shaders\shader.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\Render\SpriteRenderer.cpp">
-      <Filter>Source Files\Explorer Engine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\Render\Shader.cpp">
-      <Filter>Source Files\Explorer Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\Render\Texture.cpp">
-      <Filter>Source Files\Explorer Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\Window.cpp">
-      <Filter>Source Files\Explorer Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\Render\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\ExplorerEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Explorer Engine\ECS\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Explorer Engine\Render\SpriteRenderer.h">
-      <Filter>Header Files\Explorer Engine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\Render\Shader.h">
-      <Filter>Header Files\Explorer Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\File.h">
-      <Filter>Header Files\Explorer Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\Render\Texture.h">
-      <Filter>Header Files\Explorer Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\Window.h">
-      <Filter>Header Files\Explorer Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\ExplorerEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\Render\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Explorer Engine\ECS\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Space Explorers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

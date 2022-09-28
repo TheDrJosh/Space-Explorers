@@ -147,47 +147,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Explorer Engine\Shaders\shader.frag" />
-    <None Include="Explorer Engine\Shaders\shader.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Explorer Engine\ECS\Scene.cpp" />
-    <ClCompile Include="Explorer Engine\ExplorerEngine.cpp" />
-    <ClCompile Include="Explorer Engine\Render\Renderer.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Explorer Engine\Render\Shader.cpp" />
-    <ClCompile Include="Explorer Engine\Render\SpriteRenderer.cpp" />
-    <ClCompile Include="Explorer Engine\Render\Texture.cpp" />
-    <ClCompile Include="Explorer Engine\Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Explorer Engine\ECS\Scene.h" />
-    <ClInclude Include="Explorer Engine\ExplorerEngine.h" />
-    <ClInclude Include="Explorer Engine\File.h" />
-    <ClInclude Include="Explorer Engine\Render\Renderer.h" />
-    <ClInclude Include="Explorer Engine\Render\Shader.h" />
-    <ClInclude Include="Explorer Engine\Render\SpriteRenderer.h" />
-    <ClInclude Include="Explorer Engine\Render\Texture.h" />
-    <ClInclude Include="Explorer Engine\Window.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="container.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.h" />
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.h" />
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.h" />
+    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.cpp" />
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.cpp" />
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Space Explorers.cpp" />
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.cpp" />
+    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\glfw.3.3.8\build\native\glfw.targets" Condition="Exists('..\packages\glfw.3.3.8\build\native\glfw.targets')" />
-    <Import Project="..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets" Condition="Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" />
-    <Import Project="..\packages\glew.1.9.0.1\build\native\glew.targets" Condition="Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" />
-    <Import Project="..\packages\glm.0.9.9.800\build\native\glm.targets" Condition="Exists('..\packages\glm.0.9.9.800\build\native\glm.targets')" />
-  </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\glfw.3.3.8\build\native\glfw.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glfw.3.3.8\build\native\glfw.targets'))" />
-    <Error Condition="!Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.1.9.0.1\build\native\glew.targets'))" />
-    <Error Condition="!Exists('..\packages\glm.0.9.9.800\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.0.9.9.800\build\native\glm.targets'))" />
-  </Target>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
