@@ -150,17 +150,17 @@
     <Image Include="container.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.h" />
-    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.h" />
-    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.h" />
-    <ClInclude Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.h" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Space Explorers.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Renderer.cpp" />
-    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Shader.cpp" />
-    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Space Explorers.cpp" />
-    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Texture.cpp" />
-    <ClCompile Include="..\..\Space Explorer Restart\Space Explorer Restart\Window.cpp" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
