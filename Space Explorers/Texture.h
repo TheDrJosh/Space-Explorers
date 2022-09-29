@@ -14,9 +14,13 @@ public:
 	int getHeight();
 	glm::ivec2 getSize();
 	std::weak_ptr<uint8_t[]> getPointer();
+	void gpuReupload();
+	uint32_t gpuTexture();
 
 private:
 	int width, height;
-	std::shared_ptr<uint8_t[]> img;
+	std::shared_ptr<uint8_t[]> imageData;
+	std::shared_ptr<uint32_t> gpuTexturePtr = std::make_shared<uint32_t>(0);
+	std::shared_ptr<bool> gpuActivePtr= std::make_shared<bool>(false);
 };
 

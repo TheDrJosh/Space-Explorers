@@ -13,15 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Explorer Engine">
-      <UniqueIdentifier>{8c7c6ce0-e26b-44d3-aa94-e5629b13c238}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Explorer Engine\ECS">
-      <UniqueIdentifier>{ab7f3c3f-fcd5-4e6c-85fd-582f3e3780b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Explorer Engine\Renderer">
-      <UniqueIdentifier>{366abe07-6086-425e-9d21-559e82af7958}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg">
@@ -44,6 +35,9 @@
     <ClCompile Include="Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BatchRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer.h">
@@ -56,6 +50,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BatchRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

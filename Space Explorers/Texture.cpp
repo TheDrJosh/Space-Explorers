@@ -2,12 +2,13 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 #include <iostream>
+#include <gl/glew.h>
 
 Texture::Texture(std::string path)
 {
 	int channels;
-	img = std::make_shared<uint8_t[]>(stbi_load(path.c_str(), &width, &height, &channels, 4));
-	if (img == NULL) {
+	imageData = std::shared_ptr<uint8_t[]>(stbi_load(path.c_str(), &width, &height, &channels, 4));
+	if (imageData == NULL) {
 		std::cout << "Error in loading the image" << std::endl;;
 		exit(1);
 	}
@@ -19,7 +20,7 @@ Texture::Texture(std::string path)
 
 Texture::Texture(int width, int height, glm::u8vec4 fillColor)
 {
-	img = std::make_shared<uint8_t[]>(new uint8_t[width * height * 4]);
+	imageData = std::make_shared<uint8_t[]>(width * height * 4);
 	this->width = width;
 	this->height = height;
 
@@ -27,30 +28,31 @@ Texture::Texture(int width, int height, glm::u8vec4 fillColor)
 	{
 		for (int j = 0; j < height; j++)
 		{
-			img[(i + j * width) * 4 + 0] = fillColor.r;
-			img[(i + j * width) * 4 + 1] = fillColor.g;
-			img[(i + j * width) * 4 + 2] = fillColor.b;
-			img[(i + j * width) * 4 + 3] = fillColor.a;
+			imageData[(i + j * width) * 4 + 0] = fillColor.r;
+			imageData[(i + j * width) * 4 + 1] = fillColor.g;
+			imageData[(i + j * width) * 4 + 2] = fillColor.b;
+			imageData[(i + j * width) * 4 + 3] = fillColor.a;
 		}
 	}
+
 
 }
 
 void Texture::set(int x, int y, glm::u8vec4 color)
 {
-	img[(x + y * width) * 4 + 0] = color.r;
-	img[(x + y * width) * 4 + 1] = color.g;
-	img[(x + y * width) * 4 + 2] = color.b;
-	img[(x + y * width) * 4 + 3] = color.a;
+	imageData[(x + y * width) * 4 + 0] = color.r;
+	imageData[(x + y * width) * 4 + 1] = color.g;
+	imageData[(x + y * width) * 4 + 2] = color.b;
+	imageData[(x + y * width) * 4 + 3] = color.a;
 }
 
 glm::u8vec4 Texture::get(int x, int y)
 {
 	return glm::vec4(
-		img[(x + y * width) * 4 + 0],
-		img[(x + y * width) * 4 + 1],
-		img[(x + y * width) * 4 + 2],
-		img[(x + y * width) * 4 + 3]);
+		imageData[(x + y * width) * 4 + 0],
+		imageData[(x + y * width) * 4 + 1],
+		imageData[(x + y * width) * 4 + 2],
+		imageData[(x + y * width) * 4 + 3]);
 }
 
 int Texture::getWidth()
@@ -70,5 +72,42 @@ glm::ivec2 Texture::getSize()
 
 std::weak_ptr<uint8_t[]> Texture::getPointer()
 {
-	return std::weak_ptr<uint8_t[]>(img);
+	return std::weak_ptr<uint8_t[]>(imageData);
+}
+
+void Texture::gpuReupload()
+{
+	if (!*gpuActivePtr)
+		exit(1);
+	
+
+	glBindTexture(GL_TEXTURE_2D, *gpuTexturePtr);
+	glTextureSubImage2D(*gpuTexturePtr, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, &imageData);
+	//glGenerateMipmap(GL_TEXTURE_2D);
+}
+
+uint32_t Texture::gpuTexture()
+{
+	if (!*gpuActivePtr)
+	{
+		std::cout << "gen" << std::endl;
+
+		glGenTextures(1, &*gpuTexturePtr);
+		glBindTexture(GL_TEXTURE_2D, *gpuTexturePtr);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData.get());
+		//glGenerateMipmap(GL_TEXTURE_2D);
+
+		*gpuActivePtr = true;
+
+
+	}
+	return *gpuTexturePtr;
 }
