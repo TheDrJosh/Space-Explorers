@@ -24,7 +24,7 @@ namespace ExplorerEngine
 			template<typename T>
 			T& RemoveComponent(entt::entity entity)
 			{
-				return get.remove<T>(entity);
+				return registry.get<T>(entity);
 			}
 			
 			

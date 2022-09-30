@@ -162,7 +162,11 @@
     <ClCompile Include="Explorer Engine\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Explorer Engine\CommonType.h" />
+    <ClInclude Include="Explorer Engine\ECS\Camera.h" />
     <ClInclude Include="Explorer Engine\ECS\Scene.h" />
+    <ClInclude Include="Explorer Engine\ECS\SpriteRendererComponent.h" />
+    <ClInclude Include="Explorer Engine\ECS\Transform.h" />
     <ClInclude Include="Explorer Engine\ExplorerEngine.h" />
     <ClInclude Include="Explorer Engine\File.h" />
     <ClInclude Include="Explorer Engine\Render\Renderer.h" />

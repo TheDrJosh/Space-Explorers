@@ -2,6 +2,8 @@
 #include <glm/ext/scalar_constants.hpp>
 #include "Explorer Engine/ExplorerEngine.h"
 
+#include "Explorer Engine/ECS/Transform.h"
+
 using namespace ExplorerEngine;
 
 int main()
@@ -72,7 +74,9 @@ int main()
 
 	Engine engine(1920, 1080, "Space Explorers");
 
-	
+	entt::entity e1 = engine.CreateEntity();
+	ECS::Transform& t1 = engine.AddComponent<ECS::Transform>();
+	ECS::SpriteRenderer& sr1 = engine.AddComponent<ECS::SpriteRenderers>();
 
 
 	engine.start();

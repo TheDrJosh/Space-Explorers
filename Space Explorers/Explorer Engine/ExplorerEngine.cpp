@@ -1,5 +1,5 @@
 #include "ExplorerEngine.h"
-
+#include "ECS/Transform.h"
 
 namespace ExplorerEngine
 {
@@ -7,9 +7,8 @@ namespace ExplorerEngine
 	{
 		window = std::make_unique<Window>(width, height, title);
 		renderer = std::make_unique<Render::MainRenderer>();
-
-		//sceneManager.RegisterComponent<ECS::Transform>();
-		//sceneManager.RegisterComponent<ECS::SpriteRenderer>();
+		
+		registry.on_update<ECS::Transform>().connect<&ECS::UpdateTransformMatrix>();
 
 	}
 

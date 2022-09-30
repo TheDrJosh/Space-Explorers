@@ -2,6 +2,7 @@
 #include "Window.h"
 #include "Render/Renderer.h"
 #include <memory>
+#include <entt.hpp>
 
 namespace ExplorerEngine
 {
@@ -19,6 +20,7 @@ namespace ExplorerEngine
 	private:
 		std::unique_ptr<Window> window;
 		std::unique_ptr<Render::MainRenderer> renderer;
+		entt::registry registry;
 	};
 	
 }
