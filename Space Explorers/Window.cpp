@@ -3,7 +3,14 @@
 
 Window::Window(int width, int height, std::string title)
 {
+#ifdef _DEBUG
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+#endif // DEBUG
+
+
 	window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
+
+
 
 	if (!window)
 	{

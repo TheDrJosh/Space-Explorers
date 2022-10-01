@@ -2,7 +2,7 @@
 #include <glm/glm.hpp>
 #include <vector>
 
-#define MaxQuads 100
+#define MaxQuads 10
 
 
 struct Quad
@@ -28,7 +28,7 @@ public:
 	void render();
 private:
 	std::vector<Quad> quads;
-	uint32_t vertexBuffer, indexBuffer;
-	int MaxTextures;
+	uint32_t vertexBuffer = 0, indexBuffer = 0;
+	int MaxTextures =0;
 };
 

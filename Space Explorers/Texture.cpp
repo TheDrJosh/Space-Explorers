@@ -13,7 +13,7 @@ Texture::Texture(std::string path)
 		exit(1);
 	}
 
-#ifdef DEBUG
+#ifdef _DEBUG
 	std::cout << "Loaded image with a width of " << width << "px, a height of " << height << "px and " << channels << " channels" << std::endl;
 #endif
 }
@@ -24,9 +24,9 @@ Texture::Texture(int width, int height, glm::u8vec4 fillColor)
 	this->width = width;
 	this->height = height;
 
-	for (int i = 0; i < width; i++)
+	for (size_t i = 0; i < width; i++)
 	{
-		for (int j = 0; j < height; j++)
+		for (size_t j = 0; j < height; j++)
 		{
 			imageData[(i + j * width) * 4 + 0] = fillColor.r;
 			imageData[(i + j * width) * 4 + 1] = fillColor.g;
@@ -38,7 +38,7 @@ Texture::Texture(int width, int height, glm::u8vec4 fillColor)
 
 }
 
-void Texture::set(int x, int y, glm::u8vec4 color)
+void Texture::set(size_t x, size_t y, glm::u8vec4 color)
 {
 	imageData[(x + y * width) * 4 + 0] = color.r;
 	imageData[(x + y * width) * 4 + 1] = color.g;
@@ -46,7 +46,7 @@ void Texture::set(int x, int y, glm::u8vec4 color)
 	imageData[(x + y * width) * 4 + 3] = color.a;
 }
 
-glm::u8vec4 Texture::get(int x, int y)
+glm::u8vec4 Texture::get(size_t x, size_t y)
 {
 	return glm::vec4(
 		imageData[(x + y * width) * 4 + 0],
@@ -90,7 +90,6 @@ uint32_t Texture::gpuTexture()
 {
 	if (!*gpuActivePtr)
 	{
-		std::cout << "gen" << std::endl;
 
 		glGenTextures(1, &*gpuTexturePtr);
 		glBindTexture(GL_TEXTURE_2D, *gpuTexturePtr);
