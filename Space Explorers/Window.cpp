@@ -22,7 +22,7 @@ Window::Window(int width, int height, std::string title)
 
 
 
-
+	test
 }
 
 bool Window::shouldClose()
